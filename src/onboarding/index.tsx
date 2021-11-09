@@ -1,4 +1,6 @@
-import { useRef, useState } from "react"
+
+
+import React, { useRef, useState } from "react"
 import { FlatList, StyleSheet, View,Animated } from "react-native"
 import OnboardingScreen from "./onboarding-screen"
 
@@ -9,22 +11,25 @@ const Onboarding = ()=>{
 
     const onboardingSlides = [
         {
+            id:'1',
             title:'This is screen number 1',
             description:'Screen number 1 loading',
             image: require('../assets/1.png')
         },
 
         {
+            id:'2',
             title:'Make your orders in 1 go',
             description:'Screen number 2 loading',
-            image: require('../assets/2.png')
+            // image: require('../assets/2.png')
         },
 
 
         {
+            id:'3',
             title:'Get them delivered to your private address',
             description:'Screen number 3 loading',
-            image: require('../assets/3.png')
+            // image: require('../assets/3.png')
         }
 
 
@@ -34,7 +39,7 @@ const Onboarding = ()=>{
  
     
 
-    const scrollX = useRef(  new Animated.Value(0)).current
+    const scrollX = useRef(new Animated.Value(0)).current
 
     const slideRef = useRef<any>(null) 
 
@@ -42,7 +47,7 @@ const Onboarding = ()=>{
         setCurrentIndex(viewableItems[0].index)
       }).current
     
-    const viewConfig = useRef({viewAreaCoveragePercentThreshhold:0 }).current 
+    const viewConfig = useRef({viewAreaCoveragePercentThreshold:0 }).current 
 
     return(
         <View style={styles.container}>
@@ -52,10 +57,10 @@ const Onboarding = ()=>{
              showsHorizontalScrollIndicator
              pagingEnabled
              bounces={false}
-             keyExtractor={(item:any)=>item?.id}   
+             keyExtractor={(item:any)=>item.id}    
              renderItem={({item})=> <OnboardingScreen item={item}/> }
-             onScroll={Animated.event([{nativeElement:{
-                contentOffset: {x:scrollX   }
+             onScroll={Animated.event([{nativeEvent:{
+                contentOffset: {x:scrollX}
              }}],{useNativeDriver:false} )}
              scrollEventThrottle={32} 
              onViewableItemsChanged={viewableItemsChanged}   

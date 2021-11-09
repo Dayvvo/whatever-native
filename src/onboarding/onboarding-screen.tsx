@@ -1,4 +1,6 @@
-import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import * as React from 'react';
+
+import {  StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 
 
@@ -8,11 +10,11 @@ const OnboardingScreen = ({item}:{ item:any } )=>{
 
     return(
         <View style={[styles.container,{width}]}>
-           <Image  source={item?.image}    style={[styles.image,{width,resizeMode:'contain'}]} />  
+           {/* <Image  source={item?.image}    style={[styles.image,{width,resizeMode:'contain'}]} />   */}
 
             <View style={{flex:0.4}}>
                 <Text style={styles.title}> {item?.title} </Text>
-                <Text style={styles.description}> {item.description} </Text>
+                <Text style={styles.description}> {item?.description} </Text>
             </View> 
         </View>  
     )
@@ -22,7 +24,8 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        height: 400
     },
     image:{
         flex:0.5,
@@ -33,11 +36,11 @@ const styles = StyleSheet.create({
         fontSize:20,
         marginBottom:10,
         textAlign:'center',
-        color:'$62656b',
+        color:'#62656b',
     },
     description:{
         paddingHorizontal:64,  
-        color:'$62656b',
+        color:'#62656b',
         fontWeight:'300',
         textAlign:'center',
  
