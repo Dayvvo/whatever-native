@@ -23,6 +23,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
 import store from './src/store/store';
+import Onboarding from './src/onboarding';
 
 
 const App: () => ReactNode = () => {
@@ -39,6 +40,9 @@ const App: () => ReactNode = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
+          
+          <Onboarding/>
+    
         </ScrollView>
 
       </Provider>
