@@ -1,7 +1,8 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import userSlice from './reducers/auth';
 
 const rootReducer = combineReducers({
-    userState: user
+    users: userSlice
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
